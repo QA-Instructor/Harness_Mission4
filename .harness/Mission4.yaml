@@ -1,0 +1,36 @@
+pipeline:
+  name: Mission4
+  identifier: Mission4
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: orglevelmission4connector
+        build: <+input>
+  stages:
+    - stage:
+        name: Build Stage
+        identifier: Build_Stage
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run the shell script
+                  identifier: Run_the_shell_script
+                  spec:
+                    shell: Sh
+                    command: run.sh
