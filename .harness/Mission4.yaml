@@ -33,4 +33,4 @@ pipeline:
                   identifier: Run_the_shell_script
                   spec:
                     shell: Sh
-                    command: run.sh
+                    command: sh run.sh
